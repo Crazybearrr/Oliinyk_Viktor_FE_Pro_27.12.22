@@ -1,7 +1,7 @@
 "use strict"
-let c = prompt(`оператор (add(+),sub(-),mult(*),div(/))`);
-let a = +prompt(`Введите первое число`);
-let b = +prompt(`Введите второе число`);
+let c = prompt(`оператор (add(+),sub(-),mult(*),div(/))`),
+    a = +prompt(`Введите первое число`),
+    b = +prompt(`Введите второе число`);
 
 function calc() {
   switch (c){
