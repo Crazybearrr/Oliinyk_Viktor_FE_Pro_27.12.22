@@ -1,0 +1,47 @@
+const userAge = prompt('Скільки тобі років?', `Напиши свій вік`);
+switch (userAge){
+    case null:
+        alert(`Шкода, що Ви не захотіли ввести свій вік`)
+        break;
+    }
+const userCity = prompt('Звідки ти?', `Напиши своє місто`);
+switch (userCity){
+    case null:
+        alert(`Шкода, що Ви не захотіли ввести своє місто`)
+        break;
+    }
+const userSport = prompt('Що тобі подобається футбол, баскетбол чи теніс?', `Напиши що тобі до вподоби`);
+switch (userSport){
+    case null:
+        alert(`Шкода, що Ви не захотіли ввести свій вид спорту`)
+        break;
+    }
+function firstPart(){
+    switch (userCity){
+        case `Київ`:
+            return(`Тобі ${userAge} років. Ти живеш у столиці України.`)
+        case `Вашингтон`:
+            return(`Тобі ${userAge} років. Ти живеш у столиці США.`)
+        case `Лондон`:
+            return(`Тобі ${userAge} років. Ти живеш у столиці Великобританії.`)
+        case null:
+            break;
+        default:
+            return(`Тобі ${userAge} років. Ти живеш у місті ${userCity}.`)
+    }
+}
+
+function secondPart(){
+    switch (userSport){
+        case null:
+            break;
+        case `футбол`:
+            return(`Круто! Хочеш стати як Пеле(Эдсон Арантис ду Насименту)?`)
+        case `баскетбол `:
+            return(`Круто! Хочеш стати як Майкл Джордан?`)
+        case `теніс`:
+            return(`Круто! Хочеш стати як Джон Існер?`)
+    }    
+}
+
+alert(firstPart() + ' ' + secondPart())
