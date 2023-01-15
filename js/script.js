@@ -39,7 +39,7 @@ for (let i = 2; i <= number; i++) {
 
 let someNum = 12;
 
-for(let i = 2; i <= 100; i++){
+for(let i = 0; i <= 100; i++){
     if((3 * i) === someNum){
         console.log(`${someNum} can be obtained by raising the number 3 to ${i} power`);
         break;
