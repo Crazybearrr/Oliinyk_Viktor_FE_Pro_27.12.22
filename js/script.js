@@ -26,11 +26,12 @@ for(let i = 1; i <= 100; i++){
 
 // Дане ціле число. З'ясувати, чи є воно простим (простим називається число, більше 1, які не мають інших дільників крім 1 і себе).
 
-let number = 10;
+let number = 11;
 
+loop:
 for (let i = 2; i <= number; i++) {
   for (let j = 2; j < i; j++) {
-    if (i % j == 0) continue;
+    if (i % j == 0) continue loop;
   }
   console.log(i);
 }
