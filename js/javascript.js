@@ -55,11 +55,11 @@ console.log(arr);
 
 // Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". Вихідний рядок та символи для видалення задає користувач.
 
-let str = prompt(`Input string`, `Hello world`),
-    arg = prompt(`What characters to delete?`, `l, d`).split(`, `);
+const str = prompt(`Input string`, `Hello world`).split(``),
+      arg = prompt(`What characters to delete?`, `l, d`).split(`, `);
 
 function delSymbol(string, del){
-    return string.split(``).filter(el => !del.includes(el)).join(``);
+    return string.filter(el => !del.includes(el)).join(``);
 }
 
 console.log(delSymbol(str, arg))
