@@ -18,10 +18,11 @@ btn[0].addEventListener(`click`, () =>{
     div.classList.add(`btn_text`);
     div.innerHTML = `<p>Hi, I her</p>`;
     div.addEventListener(`click`, () =>{
-        div.style.backgroundColor= `violet`;
+        div.classList.add(`violet`);
     })
 });
 
 btn[1].addEventListener(`click`, ()=>{
     div.remove();
+    div.classList.remove(`violet`);
 });
