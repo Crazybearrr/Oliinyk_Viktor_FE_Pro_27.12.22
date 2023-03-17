@@ -7,7 +7,11 @@
 // При натисканні на “купити” з'являється повідомлення, що товар куплений і повернення у вихідний стан програми ( коли відображається лише список категорій).
 
 const listGoods = document.querySelector(`.list_goods`),
-      goodsDescr = document.querySelector(`.goods_descriptions`);
+      goodsDescr = document.querySelector(`.goods_descriptions`),
+      popupContainer = document.querySelector(`.popup_container`),
+      popupForm = document.querySelector(`.popup`),
+      closePopup = document.querySelector(`.close-popup`);
+      
 
 function addHtml(data) {
     for(let key in products){
@@ -27,16 +31,23 @@ function addHtml(data) {
                         <button class="goods_buy">BUY</button>
                     `;
                     let btn = document.querySelector(`button`);
-                    popupShow(btn);
+                    toggleModal(btn);
                 });
             }
         }
     }
 };
 
-function popupShow(elem){
-    // elem.addEventListener(`click`, (e)=>{
-    //     e.preventDefault();
-        
-    // })
+function toggleModal(elem){
+    elem.addEventListener(`click`, (e)=>{
+        e.preventDefault();
+        popupContainer.classList.add('active');
+        popupForm.classList.add('active');
+        closePopup.addEventListener(`click`, ()=>{
+            popupContainer.classList.remove(`active`);
+            popupForm.classList.remove(`active`);
+            goodsDescr.innerHTML = ``;
+            listGoods.innerHTML = ``;
+        })
+    })
 }
