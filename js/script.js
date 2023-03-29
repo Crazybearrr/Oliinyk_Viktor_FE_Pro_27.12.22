@@ -1,18 +1,22 @@
-// Дано 3 блоки
+// Робимо на підставі минулого дз.
 
-// В лівій частині сторінки - перелік категорій.+
-// При натисканні на категорію в середній блок виводиться список товарів цієї категорії.
-// Клік на товар - інформацію про товар у правому блоці.
-// В інформації товару - кнопка “купити”.
-// При натисканні на “купити” з'являється повідомлення, що товар куплений і повернення у вихідний стан програми ( коли відображається лише список категорій).
+// В інформації товару - кнопка "купити".
+// При натисканні на "купити" нижче з'являється форма оформлення замовлення з наступними полями:
+// ПІБ покупця
+// Місто (вибір зі списку)
+// Склад Нової пошти для надсилання
+// Післяплати або оплати банківської картки
+// Кількість продукції, що купується
+// Коментар до замовлення
+// 2. Реалізувати перевірку всіх даних користувача під час підтвердження замовлення - обов'язкові поля заповнені. Інакше - виводити помилку на сторінку
+
+// 3. Виводити інформацію про замовлення на сторінку (інформація про товар та про доставку)
 
 const listGoods = document.querySelector(`.list_goods`),
-      goodsDescr = document.querySelector(`.goods_descriptions`),
-      popupContainer = document.querySelector(`.popup_container`),
-      popupForm = document.querySelector(`.popup`),
-      closePopup = document.querySelector(`.close-popup`);
-      
+      goodsDescr = document.querySelector(`.goods_descriptions`);
 
+      
+///add html
 function addHtml(data) {
     for(let key in products){
         if(key == data){
@@ -38,16 +42,28 @@ function addHtml(data) {
     }
 };
 
+///add modal
+
+const modalContainer = document.querySelector(`.modal_container`),
+      modalForm = document.querySelector(`.modal`),
+      closeModal = document.querySelector(`.close-modal`);
+
+
+function removeModal() {
+    modalContainer.classList.remove(`active`);
+    modalForm.classList.remove(`active`);
+}
+
 function toggleModal(elem){
     elem.addEventListener(`click`, (e)=>{
         e.preventDefault();
-        popupContainer.classList.add('active');
-        popupForm.classList.add('active');
-        closePopup.addEventListener(`click`, ()=>{
-            popupContainer.classList.remove(`active`);
-            popupForm.classList.remove(`active`);
+        modalContainer.classList.add('active');
+        modalForm.classList.add('active');
+        closeModal.addEventListener(`click`, ()=>{
+            removeModal()
             goodsDescr.innerHTML = ``;
             listGoods.innerHTML = ``;
         })
     })
-}
+};
+

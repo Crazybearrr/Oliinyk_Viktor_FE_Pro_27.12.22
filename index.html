@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title></title>
 </head>
@@ -20,32 +21,99 @@
                 </div>
 
                 <div class="list_goods">
-                    <!-- <div class="list_good">Nike</div> -->
+                    
                 </div>
 
                 <div class="goods_descriptions">
-                    <!-- <div class="goods_description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta illo itaque placeat velit impedit voluptas aut possimus quod corrupti numquam dolore sequi inventore, enim, quis nesciunt. Officia quos aut doloremque</div>
-                    <span>200</span>
-                    <button class="goods_buy">BUY</button> -->
+                   
                 </div>
         </div>
     </div>
 
-    <div class="popup_container">
-        <form class="popup">
-            <svg class="close-popup" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
-                <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
-            </svg>
-            <label>
-                <div class="label_info">
-                    Thank you Your order is being processed
+    <div class="modal_container">
+        <form action="" class="modal novalidate">
+            <div class="close-modal" data-close>X</div>
+            <fieldset>
+                <legend>Contact details</legend><br>
+
+                <div class="modal_group">
+                    <input type="text" class="modal_input" placeholder="Name" name="name" >
+                    <p class="hide">Enter your name</p>
                 </div>
-            </label>
-            <button type="submit">OK</button>
+
+                <div class="modal_group">
+                    <input type="text" class="modal_input" placeholder="Last name" name="lastname" >
+                    <p class="hide">Enter your last name</p>
+                </div>
+                
+                <div class="modal_group">
+                    <input type="tel" class="modal_input" placeholder="Phone: +380999999999" name="phone" >
+                    <p class="hide">Enter your phone number</p>
+                </div>    
+
+                <div class="modal_group">
+                    <label for="">Select payment method:
+                        <select name="payment" id="payment">
+                            <option value="">---</option>
+                            <option value="cash">cash</option>
+                            <option value="card">card</option>
+                        </select>
+                        <p class="hide">Please select payment method</p>
+                    </label>
+                </div>
+                
+                <div class="modal_group">
+                    <label for="">Nova Рoshta: <input type = "radio" name = "post" value = "nova_poshta"></label>
+                    <label for="">Delivery: <input type = "radio" name = "post" value = "delivery"></label>
+                </div>
+
+                <div class="modal_group">
+                    <label for="">Select city: 
+                        <select name="city" id="city" title="Select your city">
+                            <option value="">---</option>
+                            <option value="Kyiv">Kyiv</option>
+                            <option value="Zaporizhzhia">Zaporizhzhia</option>
+                            <option value="Kharkiv">Kharkiv</option>
+                            <option value="Lviv">Lviv</option>
+                            <option value="Ivano-Frankivsk">Ivano-Frankivsk</option>
+                        </select>
+                        <p class="hide">Please select city</p>
+                    </label>
+                </div>
+
+                <div class="modal_group">
+                    <label for="">Select Post Office:
+                        <select name="post_office" id="" title="Select your post office">
+                            <option value="">---</option>
+                            <option value="1">Post №1 str.Lorem 69</option>
+                            <option value="2">Post №2 str.Lorem 69</option>
+                            <option value="3">Post №3 str.Lorem 69</option>
+                            <option value="7">Post №7 str.Lorem 69</option>
+                        </select>
+                        <p class="hide">Please select Post Office</p>
+                    </label>
+                </div>
+
+                <div class="modal_group">
+                    <label for="">The total amount:
+                        <input type="number" id="tentacles" name="total" min="1" max="100" value="" title="Select the total amount:">
+                        <p class="hide">Please select the total amount</p>
+                    </label>    
+                </div>
+
+                <div class="modal_group">
+                    <textarea type="text" class="modal_textarea" placeholder="Comment..." name="comment" id="comment" cols="30" rows="10" maxlength="220"></textarea>
+                </div>
+
+                <button type="submit" id="btn_buy">OK</button>
+
+            </fieldset>
         </form>
     </div>
-    <script src="js/products.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/form_validation.js"></script>
+   
 </body>
 </html>
 
