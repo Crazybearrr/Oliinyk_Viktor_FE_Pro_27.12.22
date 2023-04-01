@@ -2,27 +2,29 @@
   width: 1200px; }
 
 .header_search {
-  width: 400px; }
+  width: 400px;
+  margin-left: 20px; }
 
-.error {
+.post {
+  width: 400px;
+  margin-left: 20px; }
+
+.comment {
+  width: 400px;
+  margin-left: 20px; }
+
+h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 0;
-  background-color: #f3a5a551;
-  font-size: 14px;
-  width: 57%;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
-.hide {
+.error {
   display: none; }
+
+.show {
+  display: block; }
 
 /*# sourceMappingURL=style.css.map */

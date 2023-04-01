@@ -9,18 +9,19 @@
     <title>HW</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header_search">
-            <label for="postId">Enter id:
-                <input type="search" name="search" id="postId" min="1" max="100" placeholder="Search">
-            </label>
-
-            <p class="error hide">Please enter from 1 to 100</p>
-            <button class="btn search" id="btn_search" type="submit">Search</button>
-        </div>
-    </header>
-    <div class="wrap_post" id="post"></div>
-    <div class="wrap_comment" id="comment"></div>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_search">
+                <label for="postId">Enter id:
+                    <input type="number" name="search" id="postId" placeholder="Search">
+                </label>
+                <button class="btn_search" id="btn_search" type="submit">Search</button>
+                <p class="error" id="error">Please enter from 1 to 100</p>
+            </div>
+        </header>
+        <div class="post" id="post"></div>
+        <div class="comment" id="comment"></div>
+    </div>
 
     <script src="js/index.js"></script>
 </body>
