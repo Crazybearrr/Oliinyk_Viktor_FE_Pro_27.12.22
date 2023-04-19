@@ -1,0 +1,18 @@
+.smile{
+    display: block;
+    padding: 10px 0 10px 0;
+}
+
+.icon-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+.icon-container i {
+    font-size: 24px;
+    margin: 0 10px;
+}
