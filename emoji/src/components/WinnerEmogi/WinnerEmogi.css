@@ -1,0 +1,23 @@
+.wrap_winner{
+    padding: 20px;
+}
+
+.winner__items{
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+.winner__items li {
+    list-style: none;
+    padding: 7px;
+}
+
+.winner__count{
+    color: #000000be;
+}
+
+
+.wrap__winner_btn{
+    display: flex;
+    flex-direction: row-reverse;
+}
