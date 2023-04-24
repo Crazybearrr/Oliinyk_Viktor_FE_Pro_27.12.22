@@ -1,0 +1,16 @@
+.form__btn{
+    background-color: #ffffff00;
+    border: none;
+}
+.form__btn:hover{
+    background-color: #55535346;
+}
+.wrap__form{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.form__input{
+    width: 30%
+}

@@ -1,0 +1,7 @@
+.wrap__todo_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background-color: #faa7a71a;
+}
