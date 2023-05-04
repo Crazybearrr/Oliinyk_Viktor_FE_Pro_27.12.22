@@ -1,0 +1,18 @@
+.burger__wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.burger__order{
+    display: flex;
+    flex-direction: column;
+}
+
+.error__message{
+    color: white;
+    background-color: rgba(255, 0, 0, 0.297);
+    padding: 5px;
+    border-radius: 12px;
+}
