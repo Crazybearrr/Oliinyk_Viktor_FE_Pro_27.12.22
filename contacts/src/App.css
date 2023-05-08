@@ -1,0 +1,10 @@
+.App{
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 460px;
+}
+
+.wrap_add_form{
+    display: flex;
+    justify-content: flex-end;
+}
