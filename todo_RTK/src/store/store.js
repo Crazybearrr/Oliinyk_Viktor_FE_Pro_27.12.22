@@ -1,27 +1,19 @@
-import { createStore, compose } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import todos from '../reducers';
 
-const enhancer = (createStore) => (...args) => {
-    const store = createStore(...args);
-
-    const oldDispatch = store.dispatch;
-
-    store.dispatch = (action) => {
-        if(typeof action === 'string'){
-            return oldDispatch({
-                type: action
-            })
-        }
-        return oldDispatch(action)
+const stringMiddleware = () => (next) => (action) =>{
+    if (typeof action === 'string') {
+         return next({
+            type: next
+        })
     }
-
-    return store;
+    return next(action)
 }
 
 const store = createStore(
                         todos,
                         compose(
-                            enhancer,
+                            applyMiddleware(stringMiddleware),
                             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
                             ));
 

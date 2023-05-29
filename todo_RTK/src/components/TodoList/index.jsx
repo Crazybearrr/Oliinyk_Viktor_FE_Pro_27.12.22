@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useHttp from '../../hooks/http.hook'
 import TodoListItem from "./components/TodoListItem";
 import { useCallback, useEffect } from "react";
-import { todosDeleted, todosFetched, todosFetching, todosFetchingError } from "../../actions";
+import { todosFetched} from "../../actions";
 import { Alert, Box, CircularProgress, Stack } from "@mui/material";
 
 const TodoList =()=>{
@@ -14,14 +14,14 @@ const TodoList =()=>{
         dispatch('TODOS_FETCHING');
         request("http://localhost:3001/todos")
             .then(data => dispatch(todosFetched(data)))
-            .catch(() => dispatch(todosFetchingError()))
+            .catch(() => dispatch('TODOS_FETCHING_ERROR'))
     },[]);
 
 
     const onDelete = useCallback((id) =>{
         request(`http://localhost:3001/todos/${id}`, "DELETE")
         .then(res => console.log(res, "Deleted"))
-        .then(dispatch(todosDeleted(id)))
+        .then(dispatch('TODOS_DELETED'))
         .catch(error=>console.log(error))
     }, [request])
 
