@@ -1,3 +1,11 @@
+export const fetchTodos = (request) => (dispatch) =>{
+    dispatch(todosFetching);
+    request("http://localhost:3001/todos")
+        .then(data => dispatch(todosFetched(data)))
+        .catch(() => dispatch(todosFetchingError()))
+}
+
+
 export const todosFetching = () => {
     return{
         type: 'TODOS_FETCHING'

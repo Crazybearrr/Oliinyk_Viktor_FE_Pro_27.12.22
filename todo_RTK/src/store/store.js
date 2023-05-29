@@ -1,4 +1,5 @@
 import { createStore, compose, applyMiddleware } from "redux";
+import ReduxThunk from 'redux-thunk';
 import todos from '../reducers';
 
 const stringMiddleware = () => (next) => (action) =>{
@@ -13,7 +14,7 @@ const stringMiddleware = () => (next) => (action) =>{
 const store = createStore(
                         todos,
                         compose(
-                            applyMiddleware(stringMiddleware),
+                            applyMiddleware(ReduxThunk, stringMiddleware),
                             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
                             ));
 

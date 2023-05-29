@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useHttp from '../../hooks/http.hook'
 import TodoListItem from "./components/TodoListItem";
 import { useCallback, useEffect } from "react";
-import { todosFetched} from "../../actions";
+import { fetchTodos} from "../../actions";
 import { Alert, Box, CircularProgress, Stack } from "@mui/material";
 
 const TodoList =()=>{
@@ -11,10 +11,7 @@ const TodoList =()=>{
     const {request} = useHttp();
 
     useEffect(()=>{
-        dispatch('TODOS_FETCHING');
-        request("http://localhost:3001/todos")
-            .then(data => dispatch(todosFetched(data)))
-            .catch(() => dispatch('TODOS_FETCHING_ERROR'))
+        dispatch(fetchTodos(request));
     },[]);
 
 
