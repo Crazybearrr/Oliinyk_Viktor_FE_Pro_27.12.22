@@ -1,21 +1,23 @@
-import { createStore, compose, applyMiddleware } from "redux";
-import ReduxThunk from 'redux-thunk';
+import { configureStore } from "@reduxjs/toolkit";
 import todos from '../reducers';
 
-const stringMiddleware = () => (next) => (action) =>{
+const stringMiddleware = () => (next) => (action) => {
     if (typeof action === 'string') {
-         return next({
+        return next({
             type: next
-        })
+        });
     }
-    return next(action)
+    return next(action);
 }
 
-const store = createStore(
-                        todos,
-                        compose(
-                            applyMiddleware(ReduxThunk, stringMiddleware),
-                            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-                            ));
+const isProduction = import.meta.env.PROD;
 
-export default store
+const devToolsOption = isProduction ? false : true;
+
+const store = configureStore({
+    reducer: { todos },
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
+    devTools: devToolsOption
+});
+
+export default store;

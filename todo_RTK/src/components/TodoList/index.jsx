@@ -2,25 +2,27 @@ import { useDispatch, useSelector } from "react-redux";
 import useHttp from '../../hooks/http.hook'
 import TodoListItem from "./components/TodoListItem";
 import { useCallback, useEffect } from "react";
-import { fetchTodos} from "../../actions";
+import { fetchTodos, todosDeleted } from "../../actions";
 import { Alert, Box, CircularProgress, Stack } from "@mui/material";
 
 const TodoList =()=>{
-    const {todos, todosLoadingStatus} = useSelector(state=>state);
+    const {todos, todosLoadingStatus} = useSelector(state=>state.todos);
     const dispatch = useDispatch();
     const {request} = useHttp();
 
     useEffect(()=>{
         dispatch(fetchTodos(request));
-    },[]);
+    },[dispatch, request]);
 
-
-    const onDelete = useCallback((id) =>{
-        request(`http://localhost:3001/todos/${id}`, "DELETE")
-        .then(res => console.log(res, "Deleted"))
-        .then(dispatch('TODOS_DELETED'))
-        .catch(error=>console.log(error))
-    }, [request])
+    const onDelete = useCallback((id) => {
+        dispatch(fetchTodos(request));
+        request(`http://localhost:3001/todos/${id}`, 'DELETE')
+          .then(res => {
+            console.log(res, 'Deleted');
+            dispatch(todosDeleted(id));
+          })
+          .catch(error => console.log(error));
+      }, [dispatch, request]);
 
     if (todosLoadingStatus === "Loading") {
         return (
