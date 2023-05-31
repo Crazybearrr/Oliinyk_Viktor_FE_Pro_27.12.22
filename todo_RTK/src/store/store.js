@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todos from '../reducers';
+import todos from '../components/TodoList/TodosSlice';
 
 const stringMiddleware = () => (next) => (action) => {
     if (typeof action === 'string') {

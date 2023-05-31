@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useHttp from '../../hooks/http.hook'
 import TodoListItem from "./components/TodoListItem";
 import { useCallback, useEffect } from "react";
-import { fetchTodos, todosDeleted } from "../../actions";
+import {todosDeleted, fetchTodos} from "./TodosSlice"
 import { Alert, Box, CircularProgress, Stack } from "@mui/material";
 
 const TodoList =()=>{
@@ -11,8 +11,8 @@ const TodoList =()=>{
     const {request} = useHttp();
 
     useEffect(()=>{
-        dispatch(fetchTodos(request));
-    },[dispatch, request]);
+        dispatch(fetchTodos())
+    },[]);
 
     const onDelete = useCallback((id) => {
         dispatch(fetchTodos(request));
