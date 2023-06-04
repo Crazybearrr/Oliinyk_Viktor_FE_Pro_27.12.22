@@ -1,8 +1,10 @@
 import { Box } from "@mui/material"
 import React, { useEffect, useState } from 'react';
 
-const API_KEY = '5d066958a60d315387d9492393935c19';
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY_OPEN_WEATHER_MAP;
 const CITY = 'Kiev';
+
+console.log(API_KEY);
 
 export default function Weather(){
     const [weatherData, setWeatherData] = useState(null);
